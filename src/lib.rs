@@ -1,36 +1,41 @@
-trait Node {
-    const DIM: i32;
-    fn wiggle(self: &Self, offset: Vec<f32>) -> Self;
+#[allow(dead_code)]
+struct Node;
+
+#[allow(dead_code)]
+struct Edge;
+
+#[allow(dead_code)]
+struct Nodes;
+
+#[allow(dead_code)]
+struct Edges;
+
+#[allow(dead_code)]
+/// graph has nodes and edges
+struct Graph {
+    nodes: Nodes,
+    edges: Edges,
 }
 
-trait Edge {
-}
-
-trait Graph {
-    fn new() -> Self;
-    fn add_node<N: Node>(self: &mut Self, node: N, String node_id) -> Self;
-    fn add_edge<E: Edge>(self: &mut Self, edge: E, String edge_id) -> Self;
+#[allow(dead_code)]
+#[allow(unused_mut)]
+#[allow(unused_variables)]
+/// An optimisation graph is optimized as follows:
+/// first, compute H and b
+/// here the order of nodes can be chosen (so that later optimisation is computationally easier)
+/// then solve H · x = -b with an arbitrary solver, such as Preconditioned Conjugate Gradients (PCG)
+/// finally, update vertex data with an arbitrary optimization method (mostly GaussNewton / Levenberg-Marquardt)
+/// rinse and repeat
+fn optimize(mut g: Graph) {
+    loop {
+        break;
+    }
 }
 
 #[cfg(test)]
 mod tests {
     #[test]
-    fn optimize() {
-        use super::{ Node, Edge };
-        struct Pt(f32, f32); // (x, y)
-        struct Line(f32, f32); // y = a * x + b;
-        impl Node for Line {
-            const DIM: i32 = 2;
-            fn wiggle(self: &Line, offset: Vec<f32>) -> Line {
-                return Line(self.0 + offset[0], self.1 + offset[1]);
-            }
-        }
-        // impl Edge for (Line, Pt) {
-        // }
-        let _l = Line(0.0, 0.0);
-        let _p0 = Pt(0.0, 0.0);
-        let _p1 = Pt(1.0, 2.1);
-        let _p2 = Pt(2.0, 3.9);
-        let _p3 = Pt(3.0, 6.0);
+    fn test_optimize() {
+        // use super::{ };
     }
 }
