@@ -1,14 +1,34 @@
-#[allow(dead_code)]
-struct Node;
+use std::iter::Iterator;
+use std::collections::HashMap;
+use std::sync::Arc;
 
 #[allow(dead_code)]
-struct Edge;
+type Key = String;
 
 #[allow(dead_code)]
-struct Nodes;
+trait Node {
+}
+
+#[allow(dead_code)]
+struct Edge {
+    from : Key,
+    to : Key,
+}
+
+#[allow(dead_code)]
+type Nodes = HashMap<Key, Arc<Node>>;
+// TODO or mb Vec<Arc<Node>> ?
+// also I probably need RwLock instead of Arc
 
 #[allow(dead_code)]
 struct Edges;
+
+impl Iterator for Edges {
+    type Item = Edge;
+    fn next(&mut self) -> Option<Edge> {
+        None
+    }
+}
 
 #[allow(dead_code)]
 /// graph has nodes and edges
@@ -28,6 +48,9 @@ struct Graph {
 /// rinse and repeat
 fn optimize(mut g: Graph) {
     loop {
+        for edge in g.edges {
+            let Edge {from, to} = edge;
+        }
         break;
     }
 }
