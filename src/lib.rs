@@ -16,7 +16,7 @@ struct Edge {
 }
 
 #[allow(dead_code)]
-type Nodes = HashMap<Key, Arc<Node>>;
+type Nodes = HashMap<Key, Arc<dyn Node>>;
 // TODO or mb Vec<Arc<Node>> ?
 // also I probably need RwLock instead of Arc
 
@@ -57,8 +57,16 @@ fn optimize(mut g: Graph) {
 
 #[cfg(test)]
 mod tests {
+    mod nodes {
+        #[test]
+        fn does_not_change_ids_of_other_nodes_if_a_node_is_deleted() {
+            // this looks dumb
+        }
+    }
+    mod graph {
     #[test]
-    fn test_optimize() {
+    fn can_be_optimized() {
         // use super::{ };
+    }
     }
 }
